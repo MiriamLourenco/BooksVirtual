@@ -1,0 +1,140 @@
+.carrossel__titulo {
+    color: var(--laranja);/* cor da variavel fonte*/
+    background: var(--branco);/* cor da variavel background*/
+    text-align: center;/*alinhamento no centro*/
+    text-transform: uppercase;/*letras maiusculas*/
+    font-size: 18px;/*tamanho da fonte*/
+    font-weight: 700;/*peso da fonte*/
+    padding: 1em 0 0.5em 0;/*espaçamento interno até a borda de cada lado, comparando-se a um relogio, topo, direita, baixo e esquerda*/
+}
+
+.swiper-slide img {
+    width: 100%;/*redimencionar as imagens dentro do carrossel*/
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    display: none;  /*Remove linhas abaixo em decoração*/
+}
+
+.swiper-pagination{
+    position: initial;
+    margin: 0.5em 0;
+}
+
+.card{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin: 1em;
+    padding: 1em;
+}
+
+.card__descricao{
+    display: flex; /*dividi em linha, um do lado do outro na horizontal*/
+    justify-content: space-between; /*espaçamento entre os itens*/
+    margin-bottom: 0.5em; /*Cria espaçoespaço entre as colunas flex para baixo*/
+}
+
+.descricao__titulo {
+    font-weight: 700;
+    color: var(--laranja); 
+}
+
+.descricao__titulo-livro{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--azul) ;
+    padding: 0.5em 0;
+}
+
+.descricao__texto{
+    font-size: 14px; 
+}
+
+.card__botao{
+  display: flex;
+  justify-content: space-between;
+}
+.botao{
+    display: flex;  
+}
+
+.botao__item {
+    margin: 0 0.5em;
+}
+
+.botao__ancora {  /*a intenção da ancora e nao botao, é só redirecionar para outra pagina */
+    background: var(--laranja);
+    color: var(--branco);
+    font-weight: 700;
+    text-decoration: none; 
+    padding: 1em 2.2em;   
+}
+.botao__ancora:hover {
+    background: var(--azul-degrade);
+}
+
+.descricao img {
+    padding: 0.5em 0;
+}
+@media screen and (min-width: 1024px) {
+    
+    .carrossel__titulo{
+        font-size: 26px;
+    }
+
+    .swiper-pagination {
+        margin: 2em 0 1em 0;
+    }
+
+    .swiper {
+        width: 60%;
+    }
+    /*Apliacndo setas de indicação de lados no carrossel*/
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: block;/*Aplica*/
+        top: 60%;/*centraliza a posição*/
+    }
+    /*Redimensionando o card e centralizando*/     
+    .card {
+        width: 40%;
+        margin: 2em auto;
+    }
+}
+
+@media screen and (min-width: 1728px) {
+    
+    .carrossel__container{
+        display: flex;
+        margin: 0 20vw 3em 20vw;
+        align-items: center;
+    }
+
+    .swiper-pagination {
+        margin: 0.5em 0;
+    }
+
+    .swiper{
+        width: 50%;
+    }
+
+    .descricao__titulo{
+        font-size: 32px;
+    }
+
+    .descricao__texto{
+        font-size: 16px;
+    }
+
+    .descricao{
+        margin-right: 2em;
+    }
+
+    .card{
+        width: 60%;
+        margin-left: 3em;/* espaçando para a esquerda */
+    }
+}
+/*  */

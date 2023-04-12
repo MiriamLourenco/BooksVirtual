@@ -1,0 +1,197 @@
+.cabecalho__menu-hamburguer {
+    width: 24px;
+    height: 24px;
+    background-image: url("../img/Menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    padding: 1em; 
+}
+.container__botao:checked~.container__rotulo>.cabecalho__menu-hamburguer {
+    background-image: url("../img/MenuAberto.svg");
+}
+
+.container__botao:checked~.container__rotulo {
+    background: var(--azul-degrade);  
+}
+
+.cabecalho {
+    background-color:var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container__imagem{
+    padding: 1em;
+}
+
+.lista__menu { /*fazendo desta maneira a lista desaparece no display, tornando invisivel*/
+    display: none;
+    position: absolute; /* essa position libera ao contrari0o da estatica*/
+    top: 100%; /*movimentou a posição do menu para baixo*/
+    width: 60vw;/*width é a largura e o vw, pega a largura da minha tela*/
+    z-index: 999;/*o menu fica por cima dos elementos*/
+}
+
+/*desta maneira a baixo, é a forma que chega mais perto de uma condicional.
+usando um input da classe container. o :checked significa para quando ele for 
+clicado e o sinal de ~ juntara e chamara a classe de junção.*/
+.container__botao:checked ~.lista__menu { 
+    display: block; 
+    /*usando assim o menu fica do lado enão é isso que queremos
+    vamos la na classe .cabeçalho e colocamos a função position relative e na .lista__menu
+    uma position: absolut, que assim colocará a lista no centro*/
+}
+/*customizando o menu hamburguer. usando padding para os espaçamentos internos
+e a cor de fundo */
+.lista_menu_titulo,
+.lista_menu_item {
+    padding: 1em;
+    background-color: var(--branco);
+}
+
+/*a função abaixo é para mudar a cor de um elemento,
+criando uma variavel da cor la no styles e sempre para 
+mudar a cor da fonte usar o atributo color*/
+.lista_menu_titulo {
+    color: var(--laranja);/*cor da fonte*/
+    font-size: 18px;
+    font-weight: 700;/*peso da fonte declarada*/
+}
+
+/*A função abaixo é só copiar do figma, quando se tiver, usar variavel criada e copiar
+os elementos sitados pelo desaign*/
+.lista_menu_link {
+    background: var(--azul-degrade);
+    -webkit-background-clip: text;/* as função de webkit são para funcionar em outros tipos de navegadores abrangendo as configurações*/
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /*essa função aplica a cor só aonde tem texto (ele fica aplicado a cor*/
+    text-transform: uppercase;/*PARA DEIXAR A LETRA MAIUSCULA*/
+}
+/*Retirar o input:checkbox do menu*/ 
+/*Desparecer o titulo na versão 1024px*/ 
+/*Desparecer a lista na versão 1024px*/ 
+/*para não aparecer o texto do menu nas versao anteriores a 1728*/
+.container__botao,.container__titulo,
+.opcoes,.container__texto {
+    display: none;     
+}
+
+.lista_menu_item:hover {
+    background: var(--azul-degrade);
+}
+
+.lista_menu_item:hover > .lista_menu_link {
+    -webkit-text-fill-color: var(--branco);
+    text-decoration: none;
+}
+
+/*tela para tablet 1024px*/  
+/*@media Queries é para aplicar a um determinado tamanho de tela*/ 
+/*o screen, tem como fazer sem, mas eu quero dizer que é a tela representando um type*/ 
+/*and é e*/ 
+/*min-width: representa que é o minimo da tela seja 1024px sempre usado no começo do mobile-firsh*/
+/*caso comece da visao desktop-forst que depois vai diminuindo, usa o max-width*/ 
+@media screen and (min-width: 1024px) {
+
+    .container__titulo, 
+    .container__titulo-negrito {
+        font-family: var(--fonte-secundaria);
+        font-size: 30px;
+        
+    }
+
+    .container__titulo {
+        font-weight: 400;
+        display: block; /*para aparecer titulo so na versao 1024*/ 
+    }
+
+    .container__titulo-negrito {
+        font-weight: 700;
+    }
+
+    .opcoes{
+        display: flex; /*para colocar a lista um do lado do outro*/
+    }
+
+    .opcoes__item {
+        padding: 1em; /*para espaçar a lista só para os lados*/
+        text-transform: uppercase;
+    }
+
+    .opcoes__link {
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .container__imagem-responsiva { /*para espaçar o coração*/
+        display: none;
+    }
+
+    .cabecalho__menu-hamburguer {/*Não aparecer o menu-hamburguer*/
+        display: none;
+    }
+
+    .opcoes__botao:checked~ .lista__menu{/*para aparecer o menu-hamburguer dentro das categorias*/
+        display: block;
+        width: auto; /*para preeencher somente o espaço dele*/
+    }
+
+    .opcoes__botao {
+        display: none;
+    }
+    /*Aplicando cor de destaque no menu clicavel*/
+    .opcoes__botao:checked~.opcoes__rotulo>.opcoes__item {
+        background: var(--azul-degrade);
+        color: var(--branco);
+    }
+
+    /*Aplicando cor em todo espaço do menu*/
+    .opcoes__item {
+        padding: 2em 1em;
+    }
+    /*Aplicando cor de fundo nas abas do menu*/    
+    .lista_menu_item:hover {
+        background: var(--azul-degrade);
+    }
+    /*Aplicando cor da fonte nas abas do menu*/ 
+    /*webkit foi usado por conta da cor em degrade definido antes como transparente*/
+    .lista_menu_item:hover>.lista_menu_link {
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+    }
+
+
+}
+
+/*Inicio media query versão 1728px desktop*/
+@media screen and (min-width: 1728px) {
+    
+    /*Aplicando texto ao lado do icone*/
+    .container__link{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+    }
+    /*Aplicando espaço e centralizando todos os elementos do topo*/
+    .cabecalho{
+        padding: 0 2em;
+    }
+    /*Arrastando o texto do menu para perto do titulo */
+    .opcoes{
+    /*o auto ocupa toda a margem da esquerda*/
+        margin-right: auto;
+    }
+    /*para aparecer o texto na versao 1728*/
+    .container__texto {
+        display: block;
+    }
+}

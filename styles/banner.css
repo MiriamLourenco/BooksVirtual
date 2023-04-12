@@ -1,0 +1,67 @@
+.banner { /*classe pai principal da seção*/ 
+    background: var(--azul-degrade);/*cor de fundo*/
+    color: var(--branco);/*cor do texto*/
+    text-align: center; /*alinha texto e itens no centro*/ 
+    padding: 2.5em 2em;/*espaçamento interno*/ 
+}
+
+.banner__titulo { /*classe do titulo*/ 
+    font-size: 18px; /*fonte fora do padrao das variaveis feitas do styles.css*/ 
+    font-weight: 700; /*peso da fonte*/ 
+}
+
+.banner__texto {/*classe do texto*/ 
+    font-weight: 500; /*peso da fonte*/ 
+    margin: 1em 0;/*espaçamento para fora deixando espaços entre os textos*/ 
+}
+
+.banner__pesquisa { /*classe do search - caixa de pesquisa*/ 
+    background: transparent; /*O background fica transparente*/ 
+    border: 1px solid var(--branco); /*usa para definer borda*/ 
+    color: var(--branco); /*cor do texto que vai ser digitado*/ 
+    border-radius: 24px; /*arredondamento das bordas*/ 
+    padding: 1em;/*espaçamento interno*/ 
+    width: 100%;/*largura total do componente*/ 
+}
+/*Para acessar o placeholder use : : abaixo e dentro dela
+define novamente a fonte, tamanho, peso e etc*/ 
+.banner__pesquisa::placeholder {
+    font-family: var(--fonte-principal);/*colocando a variavel da fonte escolhida*/ 
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--branco);
+    background: url("../img/lupaPesquisa.png") no-repeat;/*colocando a imagem da lupa como background
+    e sem usar a virgula o no-repeat, para não repetir a imagem*/ 
+    background-position: 1em;/*psicionando a imagem mais perto do texto*/ 
+}
+
+@media screen and (min-width: 1024px) {
+    
+    .banner__titulo{
+        font-size: 36px;
+    }
+
+    .banner__pesquisa{
+        width: 50%;
+    }
+
+    .banner__pesquisa::placeholder{
+        background-position: 7em;
+    }
+}
+
+@media screen and (min-width: 1728px) {
+    
+    .banner__pesquisa{
+        width: 35%;
+    }
+
+    .banner__pesquisa::placeholder{
+        background-position: 14em;
+    }
+
+    .banner{
+        padding: 6em 0;
+    }
+}
